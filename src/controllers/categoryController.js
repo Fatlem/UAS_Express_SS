@@ -1,6 +1,5 @@
 const prisma = require('../db');  // Pastikan Prisma sudah diinisialisasi dengan benar
 
-
 const addCategory = async (req, res) => {
     const { name } = req.body;
 

@@ -14,7 +14,7 @@ const authRoutes = require('./routes/authRoutes')
 const courseRoutes = require('./routes/courseRoutes')
 const  categoryRoutes = require('./routes/categoryRoutes')
 const announcementRoutes = require('./routes/announcementRoutes');
-const bookmarkRoutes = require('./controllers/bookmarkRoutes'); 
+const bookmarkRoutes = require('./routes/bookmarkRoutes'); 
 
 app.use('/api', authRoutes);
 app.use('/api', courseRoutes);
