@@ -14,13 +14,17 @@ const authRoutes = require('./routes/authRoutes')
 const courseRoutes = require('./routes/courseRoutes')
 const  categoryRoutes = require('./routes/categoryRoutes')
 const announcementRoutes = require('./routes/announcementRoutes');
-const bookmarkRoutes = require('./routes/bookmarkRoutes'); 
+const courseContentRoutes = require('./routes/courseContentRoutes');
+const contentCompletionRoutes = require('./routes/contentCompletion');
+
 
 app.use('/api', authRoutes);
 app.use('/api', courseRoutes);
+app.use('/api', courseContentRoutes);
 app.use('/api', categoryRoutes);
 app.use('/api', announcementRoutes);
-app.use('/api', bookmarkRoutes);
+app.use('/api', contentCompletionRoutes);
+
 
 app.listen(port, () => {
     console.log("Server is running on port " + port);
