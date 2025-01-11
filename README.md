@@ -1,6 +1,6 @@
 Berikut adalah panduan lengkap untuk menjalankan aplikasi Anda dari awal, termasuk cara mengatur proyek, menjalankan Docker, menggunakan Prisma Studio, dan mengakses API.
 
-# 💻 Prijek UAS_Express_SS
+# 💻 Projek UAS_Express_SS
 
 # 📚 Panduan Menjalankan Aplikasi Pengumuman Kursus
 
