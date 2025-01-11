@@ -1,6 +1,6 @@
 const prisma = require("../db");
 
-// Menambahkan completion tracking
+// Tambah completion tracking
 const addCompletionTracking = async (req, res) => {
     const { courseId, contentId } = req.body;
     const { id } = req.user; // Pastikan id didapatkan dari autentikasi

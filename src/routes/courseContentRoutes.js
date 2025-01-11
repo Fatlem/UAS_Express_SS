@@ -3,7 +3,7 @@ const router = express.Router();
 const { authenticate, isTeacher } = require('../middleware/middleware');
 const { createCourseContent, getAllCourseContents, getCourseContentById, updateCourseContent, deleteCourseContent } = require("../controllers/courseContentController");
 
-
+//Content Endpoint
 router.post("/course/:courseId/contents", createCourseContent);
 router.get("/course/contents", getAllCourseContents);
 router.get("/course/contents/:id", getCourseContentById);

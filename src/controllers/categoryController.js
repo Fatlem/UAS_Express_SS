@@ -1,6 +1,6 @@
 const prisma = require('../db');  // Pastikan Prisma sudah diinisialisasi dengan benar
 
-
+// Add Categori
 const addCategory = async (req, res) => {
     const { name } = req.body;
 
@@ -26,7 +26,7 @@ const addCategory = async (req, res) => {
     }
 };
 
-// Fungsi untuk menampilkan semua kategori
+// All Categori
 const showCategories = async (req, res) => {
     try {
         const categories = await prisma.courseCategory.findMany();
@@ -66,8 +66,6 @@ const deleteCategory = async (req, res) => {
         res.status(500).json({ message: 'Terjadi kesalahan pada server' });
     }
 };
-
-
 
 module.exports = {
     addCategory,

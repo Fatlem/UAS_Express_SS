@@ -1,6 +1,6 @@
 const prisma = require('../db');  // Pastikan Prisma sudah diinisialisasi dengan benar
 
-// Fungsi untuk menampilkan daftar kursus
+// Menampilkan daftar 
 const listCourses = async (req, res) => {
     try {
         const courses = await prisma.course.findMany({
@@ -15,7 +15,7 @@ const listCourses = async (req, res) => {
     }
 };
 
-// Fungsi untuk mengambil kursus milik user
+// Mengambil Data milik user
 const myCourses = async (req, res) => {
     try {
         const id = req.user.id; // Ambil id dari JWT payload
@@ -35,7 +35,7 @@ const myCourses = async (req, res) => {
 // Fungsi untuk membuat kursus
 
 const createCourse = async (req, res) => {
-    const { name, description, price, site, categoryId } = req.body;
+    const { name, description, price, site,url, categoryId } = req.body;
 
     try {
         const id = req.user.id; // Ambil id dari JWT payload
@@ -44,6 +44,7 @@ const createCourse = async (req, res) => {
                 name,
                 description,
                 price,
+                url,
                 teacherId: id,
                 site,
                 categoryId: categoryId || null, // Menyimpan categoryId yang bisa null
@@ -58,7 +59,7 @@ const createCourse = async (req, res) => {
 
 const updateCourse = async (req, res) => {
     const { courseId } = req.params;
-    const { name, description, price, site, categoryId } = req.body;
+    const { name, description, price,url, site, categoryId } = req.body;
 
     try {
         const id = req.user.id; // Ambil id dari JWT payload
@@ -78,6 +79,7 @@ const updateCourse = async (req, res) => {
                 name,
                 description,
                 price,
+                url,
                 site: site || course.site, // Update site jika ada
                 categoryId: categoryId || course.categoryId, // Menyimpan categoryId yang bisa null
             },
@@ -88,7 +90,7 @@ const updateCourse = async (req, res) => {
         res.status(500).json({ message: 'Terjadi kesalahan pada server' });
     }
 };
-// Fungsi untuk detail kursus
+// Detail
 const detailCourse = async (req, res) => {
     const { courseId } = req.params;
     try {
@@ -147,7 +149,7 @@ const enrollCourse = async (req, res) => {
     }
 };
 
-// get content comments
+// Get content comments
 const getContentComment = async (req, res) => {
     const { contentId } = req.params;
 
@@ -161,15 +163,14 @@ const getContentComment = async (req, res) => {
             return res.status(404).json({ message: 'Konten tidak ditemukan' });
         }
 
-        res.status(201).json(newComment);
+        res.status(201).json(content);
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Terjadi kesalahan pada server' });
     }
 };
 
-// Fungsi untuk membuat komentar di konten kursus
-
+// Create komentar di konten
 const createContentComment = async (req, res) => {
     const { contentId } = req.params;
     const { comment } = req.body;
@@ -184,11 +185,11 @@ const createContentComment = async (req, res) => {
             return res.status(404).json({ message: 'Konten tidak ditemukan' });
         }
 
-        // Membuat komentar
+        // Create komentar
         const newComment = await prisma.comment.create({
             data: {
                 contentId: content.id,
-                id,
+                memberId: id,
                 comment,
             },
         });

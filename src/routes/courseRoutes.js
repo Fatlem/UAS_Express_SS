@@ -3,28 +3,14 @@ const router = express.Router();
 const { authenticate } = require('../middleware/middleware');
 const courseController = require('../controllers/courseController');
 
-// Route untuk daftar kursus
+//Course/Comment Endpoint
 router.get('/courses', courseController.listCourses);
-
-// Route untuk detail kursus
 router.get('/courses/:courseId', courseController.detailCourse);
-
-// Route untuk kursus milik user
-router.get('/mycourses', authenticate, courseController.myCourses);
-
-// Route untuk membuat kursus
+router.get('/mycourses', authenticate, courseController.myCourses);                                                         
 router.post('/courses', authenticate, courseController.createCourse);
-
-// Route untuk memperbarui kursus
 router.put('/courses/:courseId', authenticate, courseController.updateCourse);
-
-// Route untuk mendaftar kursus
 router.post('/courses/:courseId/enroll', authenticate, courseController.enrollCourse);
-
-// Route untuk menampilkan komentar pada konten kursus
 router.get('/contents/:contentId/comments', authenticate, courseController.getContentComment);
-
-// Route untuk membuat komentar pada konten kursus
 router.post('/contents/:contentId/comments', authenticate, courseController.createContentComment);
 
 module.exports = router;
