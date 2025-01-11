@@ -119,11 +119,3 @@ Anda dapat menggunakan Postman untuk menguji endpoint API. Berikut adalah bebera
         "announcementId": 1
     }
     ```
-
-## 5. Kontak
-
-Jika Anda memiliki pertanyaan atau saran, silakan hubungi saya di [email@example.com](mailto:email@example.com).
-
----
-
-Dokumentasi ini memberikan panduan lengkap untuk menjalankan aplikasi Anda dari awal, termasuk cara mengatur proyek, menjalankan Docker, menggunakan Prisma Studio, dan mengakses API. Jika Anda memiliki pertanyaan lebih lanjut atau memerlukan bantuan tambahan, silakan beri tahu!
